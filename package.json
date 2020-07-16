@@ -1,0 +1,21 @@
+{
+  "name": "bot-utilities",
+  "version": "1.0.0",
+  "description": "Utility functions (aimed for discord bots)",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "npx eslint lib"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": [
+    "utility",
+    "utilities"
+  ],
+  "author": "Douile <25043847+Douile@users.noreply.github.com> (https://github.com/Douile)",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "eslint": "^7.4.0"
+  }
+}
