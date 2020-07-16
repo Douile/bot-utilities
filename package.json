@@ -1,5 +1,5 @@
 {
-  "name": "@douile/bot-utilities",
+  "name": "discordbot-utilities",
   "version": "1.0.0",
   "description": "Utility functions (aimed for discord bots)",
   "main": "lib/index.js",
