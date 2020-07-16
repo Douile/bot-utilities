@@ -15,6 +15,14 @@
   ],
   "author": "Douile <25043847+Douile@users.noreply.github.com> (https://github.com/Douile)",
   "license": "GPL-3.0",
+  "homepage": "https://douile.github.io/bot-utilities",
+  "bugs": {
+    "url": "https://github.com/douile/bot-utilities/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/douile/bot-utilities.git"
+  },
   "devDependencies": {
     "eslint": "^7.4.0"
   }
