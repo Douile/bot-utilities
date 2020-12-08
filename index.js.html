@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#allSettled">allSettled</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#errorWrap">errorWrap</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#extendPrototype">extendPrototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#hasAny">hasAny</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#humanDuration">humanDuration</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#isOfBaseType">isOfBaseType</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#markdownEscape">markdownEscape</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#numberEmoji">numberEmoji</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#parseTime">parseTime</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#allSettled">allSettled</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#errorWrap">errorWrap</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#extendPrototype">extendPrototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#hasAny">hasAny</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#humanDuration">humanDuration</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#isOfBaseType">isOfBaseType</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#markdownEscape">markdownEscape</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#numberEmoji">numberEmoji</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#parseTime">parseTime</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#truncateEmbed">truncateEmbed</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#truncateString">truncateString</a></span></li>
 </nav>
 
 <div id="main">
@@ -39,7 +39,7 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const { DURATIONS, MARKDOWN_CHARS } = require('./constants.js');
+            <pre class="prettyprint source linenums"><code>const { DURATIONS, MARKDOWN_CHARS, EMBED_LIMITS } = require('./constants.js');
 
 /**
 * Polyfill for Promise.allSettled as it is not supported until Node v12.9.0
@@ -255,6 +255,68 @@ exports.numberEmoji = function(n) {
 		String.fromCharCode(8419)
 	].join('');
 }
+
+/**
+* Truncate a string
+* @param {string} text - String to truncate
+* @param {number} size - Length to truncate to
+* @param {string} [ending] - Optional ending when truncated
+* @returns {string} Truncated string
+*/
+exports.truncateString = function(text, size, ending) {
+  let res;
+  if (text.length > size) {
+    if (exports.isOfBaseType(ending, String)) {
+      res = text.substring(0,size-ending.length)+ending;
+    } else {
+      res = text.substring(0,size);
+    }
+  } else {
+    res = text;
+  }
+  return res;
+}
+
+
+/**
+* Truncate an embed
+* @param {Object} embed - embed to truncate
+* @param {Object} [limitOverrides] - limit overrides
+*/
+exports.truncateEmbed = function(embed, limitOverrides) {
+  const overrides = limitOverrides || {};
+
+  for (let stringKey of ['title','description','footer.text','author.name']) {
+    let propNames = stringKey.split('.');
+    let item = embed;
+    for (let i=0;i&lt;propNames.length-1;i++) {
+      if (propNames[i] in item) {
+        item = item[propNames[i]];
+      } else {
+        item = undefined;
+        break;
+      }
+    }
+    if (item !== undefined) {
+      const lastProp = propNames[propNames.length-1];
+      if (lastProp in item) {
+        item[lastProp] = exports.truncateString(item[lastProp], stringKey in overrides ? overrides[stringKey] : EMBED_LIMITS[stringKey], '...');
+      }
+    }
+  }
+
+  if (embed.fields) {
+    embed.fields.splice('fields' in overrides ? overrides['fields'] : EMBED_LIMITS['fields']);
+    for (let i=0;i&lt;embed.fields.length;i++) {
+      if ('name' in embed.fields[i]) {
+        embed.fields[i].name = exports.truncateString(embed.fileds[i].name, 'fields.name' in overrides ? overrides['fields.name'] : EMBED_LIMITS['fields.name'], '...');
+      }
+      if ('value' in embed.fields[i]) {
+        embed.fields[i].value = exports.truncateString(embed.fields[i].value, 'fields.value' in overrides ? overrides['fields.value'] : EMBED_LIMITS['fields.value'], '...');
+      }
+    }
+  }
+}
 </code></pre>
         </article>
     </section>
@@ -267,7 +329,7 @@ exports.numberEmoji = function(n) {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Thu Sep 24 2020 17:10:01 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Tue Dec 08 2020 13:34:30 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
