@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#allSettled">allSettled</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#errorWrap">errorWrap</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#extendPrototype">extendPrototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#hasAny">hasAny</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#humanDuration">humanDuration</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#isOfBaseType">isOfBaseType</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#markdownEscape">markdownEscape</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#numberEmoji">numberEmoji</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#parseTime">parseTime</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#truncateEmbed">truncateEmbed</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#truncateString">truncateString</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="is.html">is</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="is.html#.discordChannel">discordChannel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="is.html#.discordMention">discordMention</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="is.html#.discordReference">discordReference</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="is.html#.discordRole">discordRole</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="is.html#.discordSnowflake">discordSnowflake</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="is.html#.stringOfNums">stringOfNums</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#allSettled">allSettled</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#errorWrap">errorWrap</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#extendPrototype">extendPrototype</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#hasAny">hasAny</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#humanDuration">humanDuration</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#isOfBaseType">isOfBaseType</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#markdownEscape">markdownEscape</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#numberEmoji">numberEmoji</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#parseTime">parseTime</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#truncateEmbed">truncateEmbed</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#truncateString">truncateString</a></span></li>
 </nav>
 
 <div id="main">
@@ -115,11 +115,16 @@ exports.markdownEscape = function(text) {
   return Array.from(text).map(c => MARKDOWN_CHARS.includes(c) ? `\\${c}` : c).join('');
 }
 
-// Discord type checking
+/**
+* Discord type checking
+* @exports is
+* @namespace is
+*/
 const is = {};
 
 /**
 * Check if text is a user mention
+* @memberof is
 * @param {string} text - text to check (must be trimmed)
 * @returns {string?} mentioned user's snowflake ID or undefined
 */
@@ -129,6 +134,7 @@ is.discordMention = function(text) {
 
 /**
 * Check if text is a role mention
+* @memberof is
 * @param {string} text - text to check (must be trimmed)
 * @returns {string?} mentioned roles's snowflake ID or undefined
 */
@@ -138,6 +144,7 @@ is.discordRole = function(text) {
 
 /**
 * Check if text is a channel mention
+* @memberof is
 * @param {string} text - text to check (must be trimmed)
 * @returns {string?} mentioned channels's snowflake ID or undefined
 */
@@ -147,6 +154,7 @@ is.discordChannel = function(text) {
 
 /**
 * Check if text is a discord reference
+* @memberof is
 * @param {string} text - text to check
 * @param {string} start - Start to check for
 * @param {array.&lt;string>} extras - Additionals to check for after start
@@ -172,6 +180,7 @@ is.discordReference = function(text, start, extras) {
 
 /**
 * Check if text is a discord snowflake
+* @memberof is
 * @param {string} text - text to check (must be trimmed)
 * @returns {bool} whether the text is a discord snowflake
 */
@@ -181,6 +190,7 @@ is.discordSnowflake = function(text) {
 
 /**
 * Check if text contains only numbers
+* @memberof is
 * @param {string} text - text to check (must be trimmed)
 * @returns {bool} whether the text contains only numbers
 */
@@ -343,7 +353,7 @@ exports.truncateEmbed = function(embed, limitOverrides) {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Tue Dec 08 2020 13:49:27 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Tue Dec 08 2020 13:52:46 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
