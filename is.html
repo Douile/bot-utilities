@@ -124,7 +124,7 @@
 
     
 
-    <h4 class="name" id=".discordChannel"><span class="type-signature">(static) </span>discordChannel<span class="signature">(text)</span><span class="type-signature"> &rarr; (nullable) {string}</span></h4>
+    <h4 class="name" id=".discordChannel"><span class="type-signature">(static) </span>discordChannel<span class="signature">(text, allowSnowflake<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; (nullable) {string}</span></h4>
 
     
 
@@ -167,7 +167,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line112">line 112</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line115">line 115</a>
     </li></ul></dd>
     
 
@@ -199,6 +199,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -224,11 +226,55 @@
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
             <td class="description last">
                 text to check (must be trimmed)
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>allowSnowflake</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>boolean</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">
+                Allow plain snowlake IDs
                 
             </td>
         </tr>
@@ -284,7 +330,7 @@
 
     
 
-    <h4 class="name" id=".discordMention"><span class="type-signature">(static) </span>discordMention<span class="signature">(text)</span><span class="type-signature"> &rarr; (nullable) {string}</span></h4>
+    <h4 class="name" id=".discordMention"><span class="type-signature">(static) </span>discordMention<span class="signature">(text, allowSnowflake<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; (nullable) {string}</span></h4>
 
     
 
@@ -327,7 +373,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line92">line 92</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line93">line 93</a>
     </li></ul></dd>
     
 
@@ -359,6 +405,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -384,11 +432,55 @@
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
             <td class="description last">
                 text to check (must be trimmed)
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>allowSnowflake</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>boolean</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">
+                Allow plain snowlake IDs
                 
             </td>
         </tr>
@@ -444,7 +536,7 @@
 
     
 
-    <h4 class="name" id=".discordReference"><span class="type-signature">(static) </span>discordReference<span class="signature">(text, start, extras)</span><span class="type-signature"> &rarr; (nullable) {string}</span></h4>
+    <h4 class="name" id=".discordReference"><span class="type-signature">(static) </span>discordReference<span class="signature">(text, start, extras, allowSnowflake<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; (nullable) {string}</span></h4>
 
     
 
@@ -487,7 +579,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line124">line 124</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line128">line 128</a>
     </li></ul></dd>
     
 
@@ -519,6 +611,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -543,6 +637,14 @@
             
             </td>
 
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
             
 
             
@@ -570,6 +672,14 @@
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
@@ -596,11 +706,55 @@
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
             <td class="description last">
                 Additionals to check for after start
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>allowSnowflake</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>boolean</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">
+                Allow plain snowlake IDs
                 
             </td>
         </tr>
@@ -656,7 +810,7 @@
 
     
 
-    <h4 class="name" id=".discordRole"><span class="type-signature">(static) </span>discordRole<span class="signature">(text)</span><span class="type-signature"> &rarr; (nullable) {string}</span></h4>
+    <h4 class="name" id=".discordRole"><span class="type-signature">(static) </span>discordRole<span class="signature">(text, allowSnowflake<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; (nullable) {string}</span></h4>
 
     
 
@@ -699,7 +853,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line102">line 102</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line104">line 104</a>
     </li></ul></dd>
     
 
@@ -731,6 +885,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -756,11 +912,55 @@
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
             <td class="description last">
                 text to check (must be trimmed)
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>allowSnowflake</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>boolean</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">
+                Allow plain snowlake IDs
                 
             </td>
         </tr>
@@ -816,7 +1016,7 @@
 
     
 
-    <h4 class="name" id=".discordSnowflake"><span class="type-signature">(static) </span>discordSnowflake<span class="signature">(text)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+    <h4 class="name" id=".discordSnowflake"><span class="type-signature">(static) </span>discordSnowflake<span class="signature">(text)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
 
@@ -859,7 +1059,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line148">line 148</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line152">line 152</a>
     </li></ul></dd>
     
 
@@ -953,7 +1153,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><code>bool</code></span>
+<span class="param-type"><code>boolean</code></span>
 
 
     </dd>
@@ -976,7 +1176,7 @@
 
     
 
-    <h4 class="name" id=".stringOfNums"><span class="type-signature">(static) </span>stringOfNums<span class="signature">(text)</span><span class="type-signature"> &rarr; {bool}</span></h4>
+    <h4 class="name" id=".stringOfNums"><span class="type-signature">(static) </span>stringOfNums<span class="signature">(text)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
 
@@ -1019,7 +1219,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line158">line 158</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line162">line 162</a>
     </li></ul></dd>
     
 
@@ -1113,7 +1313,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><code>bool</code></span>
+<span class="param-type"><code>boolean</code></span>
 
 
     </dd>
@@ -1148,7 +1348,7 @@
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Tue Dec 08 2020 16:04:28 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Sun Dec 27 2020 21:37:17 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
