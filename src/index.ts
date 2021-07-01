@@ -293,7 +293,7 @@ export function truncateString(
  */
 export function truncateEmbed(
   embed: any,
-  limitOverrides: EmbedLimitOverrides
+  limitOverrides?: EmbedLimitOverrides
 ): any {
   const overrides = limitOverrides || {};
 
