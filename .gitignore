@@ -1,2 +1,15 @@
-node_modules/
-lib/
+/*
+
+!.gitignore
+!.github
+
+!package*.json
+!.npmignore
+!.eslintrc.json
+!.eslintignore
+!typedoc.json
+!tsconfig.json
+
+!LICENSE
+!README.md
+!src

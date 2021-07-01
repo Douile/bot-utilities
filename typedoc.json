@@ -1,0 +1,7 @@
+{
+  "entryPoints": ["./src/index.ts"],
+  "out": "docs",
+  "highlightTheme": "github-dark",
+  "name": "@douile/bot-utilities",
+  "includeVersion": true
+}
