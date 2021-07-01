@@ -2,7 +2,7 @@
     "plugins": [],
     "recurseDepth": 10,
     "source": {
-        "includePattern": ".+\\.ts$",
+        "includePattern": ".+\\.js$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
     "sourceType": "module",
