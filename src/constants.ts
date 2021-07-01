@@ -1,8 +1,10 @@
+import { EmbedLimits } from './types';
+
 /* Characters to escape when escaping markdown */
-exports.MARKDOWN_CHARS = '*_|~>`';
+export const MARKDOWN_CHARS = '*_|~>`';
 
 /* Time durations with human names in ms */
-exports.DURATIONS = [
+export const DURATIONS = [
   { n: 31557600000, name: 'year'},
   { n: 2629800000, name: 'month' },
   { n: 604800000, name: 'week'},
@@ -14,7 +16,7 @@ exports.DURATIONS = [
 ];
 
 /* Discord limits for embed fields */
-exports.EMBED_LIMITS = {
+export const EMBED_LIMITS: EmbedLimits = {
   title: 256,
   description: 2048,
   fields: 25,
