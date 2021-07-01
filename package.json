@@ -4,7 +4,7 @@
   "description": "Utility functions (aimed for discord bots)",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npx tslint src",
+    "test": "npx tslint --project .",
     "build": "rm -rf lib && npx tsc"
   },
   "directories": {
