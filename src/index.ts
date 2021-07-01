@@ -31,18 +31,17 @@ export function allSettled<T>(promises: Promise<T>[]): Promise<T[]> {
  * @param onError - Optional to function to call on error
  * @returns non async function that will run provided callable
  */
-export function errorWrap<T>(
-  callable: (...args: any[]) => Promise<T>,
-  onError?: (...args: any[]) => void
-): (...args: any[]) => Promise<void | T> {
-  return function(this: any, ...args: any[]) {
-    return callable
-      .apply(this, args)
-      .then(null)
-      .catch(function(this: any, ...e) {
-        console.error(`Encountered error running ${callable.name}`, ...e);
-        if (onError) onError.apply(this, e);
-      });
+export function errorWrap<A extends any[], E, T extends any, R>(
+  callable: (...args: A) => Promise<R>,
+  onError?: (reason: E) => void
+): (this: T, ...args: A) => Promise<R> {
+  return function(this: T, ...args: A): Promise<R> {
+    let p = callable.call(this, ...args);
+    p.then(null).catch((reason: any): void => {
+      console.error(`Encountered error running ${callable.name}: ${reason}`);
+      if (onError) onError.call(this, reason);
+    });
+    return p;
   };
 }
 
