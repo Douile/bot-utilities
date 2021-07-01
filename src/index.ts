@@ -36,7 +36,7 @@ export function errorWrap<A extends any[], E, T extends any, R>(
   onError?: (reason: E) => void
 ): (this: T, ...args: A) => Promise<R> {
   return function(this: T, ...args: A): Promise<R> {
-    let p = callable.call(this, ...args);
+    const p = callable.call(this, ...args);
     p.then(null).catch((reason: any): void => {
       console.error(`Encountered error running ${callable.name}: ${reason}`);
       if (onError) onError.call(this, reason);
